@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect } from 'react';
+
+// fetching test
+import { connect } from 'react-redux';
+import { fetchBooks } from '../actions/books';
 
 function App(props) {
-	return (
-		<div>
-			<h1>hello</h1>
-			<h1>hello</h1>
-			<h1>hello</h1>
-			<h1>hello</h1>
-		</div>
-	);
+  useEffect(() => {
+    props.dispatch(fetchBooks());
+  }, []);
+
+  return (
+    <div>
+      <h1>hello</h1>
+      <h1>hello</h1>
+      <h1>hello</h1>
+      <h1>hello</h1>
+    </div>
+  );
 }
 
-export default App;
+let mapStateToProps = (state) => {
+  return {};
+};
+
+export default connect(mapStateToProps)(App);
