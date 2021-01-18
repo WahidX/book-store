@@ -2,10 +2,10 @@ import {} from '../actions/actionTypes';
 
 const initialState = {
   items: [
-    {
-      book: {},
-      qty: 0,
-    },
+    // {
+    //   book: {},
+    //   qty: 0,
+    // },
   ],
   error: null,
   inProgress: false,

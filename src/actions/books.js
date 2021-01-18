@@ -16,10 +16,10 @@ export function startBookFetch() {
   };
 }
 
-export function bookFetchFailed(errorMessage) {
+export function bookFetchFailed(error) {
   return {
     type: BOOK_FETCH_FAIL,
-    error: errorMessage,
+    error: error,
   };
 }
 
@@ -41,12 +41,12 @@ export function fetchBooks() {
     axios(config)
       .then((response) => {
         console.log(response.data);
-        // dispatch(bookFetchSuccess(response.data))
+        dispatch(bookFetchSuccess(response.data));
         dispatch(setSnackBar('success', 'Fetched books!', 3000));
       })
       .catch((error) => {
         console.log(error);
-        // dispatch(bookFetchFailed(error));
+        dispatch(bookFetchFailed(error));
         dispatch(setSnackBar('error', error, 3000));
       });
   };
